@@ -7,7 +7,7 @@
   "acompte": {
     "_note": "Acompte par Revolut, hors Acuity (décidé le 11/10/2026). Le montant, le lien et le délai sont lus ici par js/main.js : encadré au-dessus du module, ligne du hero et pied du module.",
     "montant": 20,
-    "lien": "https://revolut.me/isharon",
+    "lien": "https://revolut.me/noellasharon",
     "delaiHeures": 24
   },
   "promo": {
