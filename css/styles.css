@@ -20,8 +20,6 @@
   --ligne: #DDD3C3;
   --ligne-douce: #ECE5D9;
   --blanc: #FFFFFF;
-  --citrouille: #B9531A;        /* orange sur fond clair (contraste AA) */
-  --citrouille-clair: #F08A3C;  /* orange sur fond bleu nuit */
 
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans: 'Jost', system-ui, sans-serif;
@@ -254,38 +252,6 @@ h1, h2, h3 { margin: 0; }
 .know-list strong { display: block; font-size: 15px; font-weight: 600; }
 .know-list span:not(.know-diamond) { display: block; font-size: 14px; line-height: 1.5; color: var(--texte-doux); }
 
-/* ---------- Promotion (affichée par js/main.js pendant sa période) ---------- */
-.promo-bar { background: var(--nuit); color: var(--ivoire); font-size: 14px; line-height: 1.4; }
-.promo-bar-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px 18px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
-.promo-bar p { margin: 0; }
-.promo-bar-main strong { color: var(--citrouille-clair); font-weight: 600; }
-.promo-bar-sub { color: var(--texte-sur-nuit); }
-.promo-bar-link { color: var(--ivoire); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color .2s; }
-.promo-bar-link:hover { color: var(--citrouille-clair); }
-.promo-icon { display: inline-flex; vertical-align: -3px; margin-right: 8px; }
-.promo-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--citrouille-clair); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-
-.promo { background: var(--nuit); color: var(--ivoire); padding: 96px 0; }
-.promo-inner { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 72px; align-items: center; }
-.promo-visual { display: flex; justify-content: center; }
-.arch-promo { width: 100%; max-width: 440px; aspect-ratio: 440 / 580; border-radius: 220px 220px 6px 6px; background: var(--nuit-2); outline: 1px solid var(--dore); outline-offset: 12px; }
-.promo-text { display: flex; flex-direction: column; align-items: flex-start; }
-.promo-eyebrow { margin: 0 0 14px; display: flex; align-items: center; font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--citrouille-clair); }
-.promo .section-title { color: var(--ivoire); }
-.promo .section-title em { color: var(--citrouille-clair); }
-.promo-dates { margin: 16px 0 0; padding: 6px 18px; border: 1px solid var(--dore); border-radius: 999px; font-size: 15px; font-weight: 500; }
-.promo-label { margin: 36px 0 0; font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--dore-clair); }
-.promo-price { margin: 0; font-family: var(--serif); font-weight: 500; font-size: clamp(96px, 14vw, 156px); line-height: 1; padding-bottom: 12px; border-bottom: 1px solid var(--nuit-ligne); width: 100%; max-width: 480px; }
-.promo-lines { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 10px; font-size: 18px; max-width: 520px; }
-.promo-lines li { padding-left: 22px; position: relative; }
-.promo-lines li::before { content: '◆'; position: absolute; left: 0; top: 2px; font-size: 11px; color: var(--dore-clair); }
-.promo-accent { color: var(--citrouille-clair); font-weight: 600; }
-.promo-actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; }
-.btn-promo { background: var(--ivoire); color: var(--nuit); }
-.btn-promo:hover { background: var(--citrouille-clair); color: var(--nuit); }
-.btn-promo-outline { background: transparent; color: var(--ivoire); border-color: var(--ivoire); }
-.btn-promo-outline:hover { background: var(--ivoire); color: var(--nuit); }
-
 /* ---------- Encadré « Acompte » (au-dessus du module) ---------- */
 .acompte {
   width: 100%; max-width: 860px;
@@ -403,23 +369,12 @@ h1, h2, h3 { margin: 0; }
    Tablette et mobile
    ========================================================== */
 @media (max-width: 960px) {
-  .promo-inner { grid-template-columns: 1fr; gap: 48px; }
-  .promo-visual { order: 2; }
   .know-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero { gap: 48px; padding-top: 48px; padding-bottom: 64px; }
 }
 
 @media (max-width: 760px) {
   :root { --gutter: 20px; }
-  .promo-bar { font-size: 13px; }
-  .promo-bar-main { flex: 1 1 100%; }
-  .promo-bar-inner { gap: 0 14px; }
-  .promo { padding: 72px 0; }
-  .promo-visual { display: none; }
-  .promo-label { margin-top: 28px; }
-  .promo-lines { font-size: 16px; }
-  .promo-actions { flex-direction: column; align-items: stretch; width: 100%; }
-  .promo-actions .btn { width: 100%; text-align: center; }
   .stepper { flex-wrap: nowrap; gap: 0 12px; font-size: 14px; }
   .stepper li { gap: 7px; }
   .stepper li + li::before { width: 12px; margin-right: 5px; }
