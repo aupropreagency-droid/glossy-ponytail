@@ -23,13 +23,13 @@
     "dates": "Commandes jusqu'au 21 novembre · prestations du 27 novembre au 1er décembre",
     "legende": "Mèches 18″ Sharon Luxury · RH = Raw Hair · VH = Virgin Hair",
     "packs": [
-      { "nom": "Ponytail", "detail": "1 bundle 18″", "prix": "RH 190 € · VH 165 €", "acuityId": null },
-      { "nom": "Half up half down", "detail": "2 bundles 18″", "prix": "RH 285 € · VH 225 €", "acuityId": null },
-      { "nom": "Ponylace", "detail": "Lace HD Swiss 13x6 14″ + 1 ou 2 bundles 18″", "prix": "RH 285 / 405 € · VH 255 / 350 €", "acuityId": null },
-      { "nom": "Tissage ouvert", "detail": "3 bundles 18″", "prix": "RH 435 € · VH 350 €", "acuityId": null },
-      { "nom": "Jayda Wayda braids", "detail": "3 bundles 18″", "prix": "RH 435 € · VH 350 €", "acuityId": null },
-      { "nom": "Tissage closure", "detail": "3 bundles 18″ + closure HD Swiss 2x6 ou lace 5x5", "prix": "RH dès 500 € · VH dès 415 €", "acuityId": null },
-      { "nom": "Pose de perruque incluse", "detail": "Lace HD Swiss 13x6, de 18″ à 32″, densité 200 % ou 230 %", "prix": "de 280 € à 750 €", "acuityId": null }
+      { "nom": "Ponytail", "detail": "1 bundle 18″", "prix": "RH 190 € · VH 165 €", "acuityId": 100357846 },
+      { "nom": "Half up half down", "detail": "2 bundles 18″", "prix": "RH 285 € · VH 225 €", "acuityId": 100357959 },
+      { "nom": "Ponylace", "detail": "Lace HD Swiss 13x6 14″ + 1 ou 2 bundles 18″", "prix": "RH 285 / 405 € · VH 255 / 350 €", "acuityId": 100357989 },
+      { "nom": "Tissage ouvert", "detail": "3 bundles 18″", "prix": "RH 435 € · VH 350 €", "acuityId": 100358021 },
+      { "nom": "Jayda Wayda braids", "detail": "3 bundles 18″", "prix": "RH 435 € · VH 350 €", "acuityId": 100358054 },
+      { "nom": "Tissage closure", "detail": "3 bundles 18″ + closure HD Swiss 2x6 ou lace 5x5", "prix": "RH dès 500 € · VH dès 415 €", "acuityId": 100358095 },
+      { "nom": "Pose de perruque incluse", "detail": "Lace HD Swiss 13x6, de 18″ à 32″, densité 200 % ou 230 %", "prix": "de 280 € à 750 €", "acuityId": 100358158 }
     ],
     "lignes": [
       { "texte": "50 % d'acompte à la réservation, par Revolut, Boursorama ou PayPal : il sert à commander tes mèches", "accent": "50 % d'acompte" },
