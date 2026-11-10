@@ -252,6 +252,55 @@ h1, h2, h3 { margin: 0; }
 .know-list strong { display: block; font-size: 15px; font-weight: 600; }
 .know-list span:not(.know-diamond) { display: block; font-size: 14px; line-height: 1.5; color: var(--texte-doux); }
 
+/* ---------- Promotion (affichée par js/main.js pendant sa période) ---------- */
+.promo-bar { background: var(--nuit); color: var(--ivoire); font-size: 14px; line-height: 1.4; }
+.promo-bar-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2px 18px; padding-top: 10px; padding-bottom: 10px; text-align: center; }
+.promo-bar p { margin: 0; }
+.promo-bar-main strong { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+.promo-bar-sub { color: var(--texte-sur-nuit); }
+.promo-bar-link { color: var(--ivoire); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.promo-bar-link:hover { color: var(--texte-sur-nuit); }
+
+/* Monogramme Sharon Luxury (Bodoni Moda, reflet satiné) */
+.sl-mono { position: relative; display: inline-block; width: 1em; height: 1.15em; font-family: 'Bodoni Moda', var(--serif); font-weight: 500; line-height: 1; }
+.sl-mono > span { position: absolute; font-size: .84em; line-height: 1; }
+.sl-mono .sl-s { left: .048em; top: -.071em; }
+.sl-mono .sl-l { left: .452em; top: .19em; }
+.promo-mono > span {
+  background: linear-gradient(110deg, #0B1738 0%, #0F1E4A 18%, #3A4F8E 30%, #0F1E4A 37%, #0D1A42 55%, #4C62A3 66%, #12234F 73%, #0A1535 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.promo { background: var(--nuit); color: var(--ivoire); padding: 96px 0; }
+.promo-inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px 72px; align-items: start; }
+.promo-head { grid-column: 1 / -1; display: flex; align-items: center; gap: 48px; }
+.promo-seal {
+  flex: none; width: 200px; height: 260px; display: flex; align-items: center; justify-content: center;
+  background: var(--ivoire); border-radius: 100px 100px 6px 6px; outline: 1px solid var(--texte-sur-nuit); outline-offset: 10px;
+  font-size: 130px;
+}
+.promo-head-text { display: flex; flex-direction: column; align-items: flex-start; }
+.promo-eyebrow { margin: 0 0 14px; font-size: 13px; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--texte-sur-nuit); }
+.promo .section-title { color: var(--ivoire); }
+.promo .section-title em { color: var(--ivoire); }
+.promo-dates { margin: 18px 0 0; padding: 6px 18px; border: 1px solid var(--texte-sur-nuit); border-radius: 999px; font-size: 15px; font-weight: 500; }
+.promo-legend { margin: 14px 0 0; font-size: 15px; color: var(--texte-sur-nuit); }
+
+.promo-packs { list-style: none; margin: 0; padding: 0; display: grid; }
+.promo-pack { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 0; border-bottom: 1px solid var(--nuit-ligne); }
+.promo-pack:first-child { border-top: 1px solid var(--nuit-ligne); }
+.promo-pack-info { min-width: 0; }
+.promo-pack-name { font-family: var(--serif); font-weight: 500; font-size: 26px; line-height: 1.15; }
+.promo-pack-detail { margin: 2px 0 0; font-size: 14px; color: var(--texte-sur-nuit); }
+.promo-pack-price { margin: 6px 0 0; font-size: 16px; font-weight: 600; }
+.btn-promo { flex: none; background: var(--ivoire); color: var(--nuit); }
+.btn-promo:hover { background: var(--texte-sur-nuit); color: var(--nuit); }
+
+.promo-lines { list-style: none; margin: 0; padding: 28px 32px; display: grid; gap: 14px; font-size: 17px; border: 1px solid var(--nuit-ligne); border-radius: var(--radius); background: var(--nuit-2); }
+.promo-lines li { padding-left: 22px; position: relative; }
+.promo-lines li::before { content: '◆'; position: absolute; left: 0; top: 2px; font-size: 11px; color: var(--texte-sur-nuit); }
+.promo-accent { font-weight: 600; }
+
 /* ---------- Encadré « Acompte » (au-dessus du module) ---------- */
 .acompte {
   width: 100%; max-width: 860px;
@@ -369,12 +418,21 @@ h1, h2, h3 { margin: 0; }
    Tablette et mobile
    ========================================================== */
 @media (max-width: 960px) {
+  .promo-inner { grid-template-columns: 1fr; }
   .know-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hero { gap: 48px; padding-top: 48px; padding-bottom: 64px; }
 }
 
 @media (max-width: 760px) {
   :root { --gutter: 20px; }
+  .promo-bar { font-size: 13px; }
+  .promo-bar-main { flex: 1 1 100%; }
+  .promo { padding: 72px 0; }
+  .promo-head { flex-direction: column; align-items: flex-start; gap: 32px; }
+  .promo-seal { width: 130px; height: 170px; font-size: 84px; }
+  .promo-pack { gap: 12px; }
+  .promo-pack-name { font-size: 23px; }
+  .promo-lines { padding: 22px 20px; font-size: 16px; }
   .stepper { flex-wrap: nowrap; gap: 0 12px; font-size: 14px; }
   .stepper li { gap: 7px; }
   .stepper li + li::before { width: 12px; margin-right: 5px; }

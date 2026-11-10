@@ -10,6 +10,36 @@
     "lien": "https://revolut.me/noellasharon",
     "delaiHeures": 24
   },
+  "promo": {
+    "_note": "Promotion temporaire : affichée automatiquement du jour « affichageDebut » au jour « fin » inclus (heure de Paris). Hors période, rien n'apparaît dans la page. Pour prévisualiser : ajouter ?promo=apercu à l'adresse. Chaque pack ouvre sa prestation dans Acuity grâce à son « acuityId » (null = ouvre la liste de toutes les prestations).",
+    "id": "black-friday-2026",
+    "titre": "Black Friday",
+    "partenaire": "Glossy Ponytail × Sharon Luxury",
+    "accroche": "Tes mèches",
+    "accrocheItalique": "incluses.",
+    "affichageDebut": "2026-11-10",
+    "fin": "2026-11-21",
+    "fuseau": "Europe/Paris",
+    "dates": "Commandes jusqu'au 21 novembre · prestations du 27 novembre au 1er décembre",
+    "legende": "Mèches 18″ Sharon Luxury · RH = Raw Hair · VH = Virgin Hair",
+    "packs": [
+      { "nom": "Ponytail", "detail": "1 bundle 18″", "prix": "RH 190 € · VH 165 €", "acuityId": null },
+      { "nom": "Half up half down", "detail": "2 bundles 18″", "prix": "RH 285 € · VH 225 €", "acuityId": null },
+      { "nom": "Ponylace", "detail": "Lace HD Swiss 13x6 14″ + 1 ou 2 bundles 18″", "prix": "RH 285 / 405 € · VH 255 / 350 €", "acuityId": null },
+      { "nom": "Tissage ouvert", "detail": "3 bundles 18″", "prix": "RH 435 € · VH 350 €", "acuityId": null },
+      { "nom": "Jayda Wayda braids", "detail": "3 bundles 18″", "prix": "RH 435 € · VH 350 €", "acuityId": null },
+      { "nom": "Tissage closure", "detail": "3 bundles 18″ + closure HD Swiss 2x6 ou lace 5x5", "prix": "RH dès 500 € · VH dès 415 €", "acuityId": null },
+      { "nom": "Pose de perruque incluse", "detail": "Lace HD Swiss 13x6, de 18″ à 32″, densité 200 % ou 230 %", "prix": "de 280 € à 750 €", "acuityId": null }
+    ],
+    "lignes": [
+      { "texte": "50 % d'acompte à la réservation, par Revolut, Boursorama ou PayPal : il sert à commander tes mèches", "accent": "50 % d'acompte" },
+      { "texte": "Le reste en espèces le jour de ton rendez-vous" },
+      { "texte": "Réserve au moins 12 jours avant ton rendez-vous", "accent": "12 jours" },
+      { "texte": "Autres longueurs disponibles sur demande" },
+      { "texte": "Commande avant le 21 novembre et coiffe-toi plus tard : ton prix reste garanti", "accent": "ton prix reste garanti" }
+    ],
+    "bandeau": { "texte": "Prestations mèches incluses", "lien": "Voir les tarifs" }
+  },
   "categories": [
     {
       "nom": "Ponytails",

@@ -24,7 +24,7 @@
     return Boolean(data && data.acuity && data.acuity.scheduleUrl);
   }
 
-  // Depuis une photo, on arrive sur l'en-tête de la réservation : titre, étapes, puis le module juste dessous.
+  // Depuis une photo ou la promo, on arrive sur l'en-tête de la réservation : titre, étapes, puis le module juste dessous.
   function scrollToBooking() {
     var target = document.querySelector('#reserver .section-head') || document.getElementById('reserver');
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -354,6 +354,106 @@
     });
   }
 
+  /* ---------- Promotion (affichée seulement pendant sa période) ---------- */
+  function parisToday(zone) {
+    return new Intl.DateTimeFormat('en-CA', { timeZone: zone || 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+  }
+
+  function promoIsActive() {
+    var promo = data && data.promo;
+    if (!promo) return false;
+    if (new URLSearchParams(window.location.search).get('promo') === 'apercu') return true;
+    var today = parisToday(promo.fuseau);
+    return today >= promo.affichageDebut && today <= promo.fin;
+  }
+
+  function withAccent(tag, text, accent, accentClass) {
+    var node = el(tag);
+    var idx = accent ? text.indexOf(accent) : -1;
+    if (idx < 0) { node.textContent = text; return node; }
+    node.appendChild(document.createTextNode(text.slice(0, idx)));
+    node.appendChild(el('strong', { className: accentClass, text: accent }));
+    node.appendChild(document.createTextNode(text.slice(idx + accent.length)));
+    return node;
+  }
+
+  // Monogramme Sharon Luxury : S et L en Bodoni Moda, posés l'un sur l'autre.
+  function monogram(className) {
+    return el('span', { className: 'sl-mono ' + (className || ''), role: 'img', 'aria-label': 'Monogramme Sharon Luxury' }, [
+      el('span', { className: 'sl-s', text: 'S', 'aria-hidden': 'true' }),
+      el('span', { className: 'sl-l', text: 'L', 'aria-hidden': 'true' })
+    ]);
+  }
+
+  function renderPromo() {
+    if (!promoIsActive()) return;
+    var promo = data.promo;
+
+    // Bandeau tout en haut de la page
+    var header = document.querySelector('.site-header');
+    if (header) {
+      var bar = el('aside', { className: 'promo-bar', 'aria-label': 'Offre en cours : ' + promo.titre }, [
+        el('div', { className: 'container promo-bar-inner' }, [
+          el('p', { className: 'promo-bar-main' }, [
+            el('strong', { text: promo.titre }),
+            document.createTextNode(' · ' + promo.bandeau.texte)
+          ]),
+          el('p', { className: 'promo-bar-sub', text: 'Commandes jusqu\'au 21 novembre' }),
+          el('a', { className: 'promo-bar-link', href: '#promo', text: promo.bandeau.lien + ' →' })
+        ])
+      ]);
+      header.parentNode.insertBefore(bar, header);
+    }
+
+    // Bloc promo, juste avant « Tarifs & réservation »
+    var target = document.getElementById('reserver');
+    if (!target) return;
+
+    var packs = el('ul', { className: 'promo-packs' });
+    promo.packs.forEach(function (p) {
+      var btn = el('a', { className: 'btn btn-small btn-promo', href: '#reserver', text: 'Réserver', 'aria-label': 'Réserver : ' + p.nom + ' mèches incluses' });
+      btn.addEventListener('click', function (event) {
+        event.preventDefault();
+        if (hasAcuity()) openBookingById(p.acuityId);
+        else scrollToBooking();
+      });
+      packs.appendChild(el('li', { className: 'promo-pack' }, [
+        el('div', { className: 'promo-pack-info' }, [
+          el('h3', { className: 'promo-pack-name', text: p.nom }),
+          el('p', { className: 'promo-pack-detail', text: p.detail }),
+          el('p', { className: 'promo-pack-price', text: p.prix })
+        ]),
+        btn
+      ]));
+    });
+
+    var lines = el('ul', { className: 'promo-lines' });
+    promo.lignes.forEach(function (line) {
+      lines.appendChild(withAccent('li', line.texte, line.accent, 'promo-accent'));
+    });
+
+    var head = el('div', { className: 'promo-head' }, [
+      el('div', { className: 'promo-seal' }, [monogram('promo-mono')]),
+      el('div', { className: 'promo-head-text' }, [
+        el('p', { className: 'promo-eyebrow', text: promo.titre + ' · ' + promo.partenaire }),
+        el('h2', { id: 'promo-titre', className: 'section-title' }, [
+          document.createTextNode(promo.accroche + ' '),
+          el('em', { text: promo.accrocheItalique })
+        ]),
+        el('p', { className: 'promo-dates', text: promo.dates }),
+        el('p', { className: 'promo-legend', text: promo.legende })
+      ])
+    ]);
+
+    var section = el('section', { id: 'promo', className: 'promo', 'aria-labelledby': 'promo-titre' }, [
+      el('div', { className: 'container promo-inner' }, [head, packs, lines])
+    ]);
+    target.parentNode.insertBefore(section, target);
+
+    // Arrivée depuis un lien « …/#promo » : le bloc n'existait pas encore au chargement
+    if (window.location.hash === '#promo') section.scrollIntoView();
+  }
+
   /* ---------- Démarrage ---------- */
   function start(json) {
     data = json;
@@ -366,6 +466,7 @@
     renderGallery();
     renderAcompte();
     renderSurDemande();
+    renderPromo();
   }
 
   function showError() {
