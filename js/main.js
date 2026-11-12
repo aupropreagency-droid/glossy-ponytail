@@ -306,6 +306,13 @@
       el('p', { className: 'acompte-rule', text: 'Sans acompte reçu dans les ' + a.delaiHeures + ' h, ton rendez-vous est annulé.' }),
       pay
     ]);
+    // Pendant la promo : rappel de l'acompte propre aux prestations mèches incluses.
+    if (promoIsActive()) {
+      box.appendChild(el('p', { className: 'acompte-promo' }, [
+        el('strong', { text: 'Prestations mèches incluses : ' }),
+        document.createTextNode('acompte de 50 % du prix (Revolut, Boursorama ou PayPal), qui sert à commander tes mèches. Le reste se règle en espèces le jour du rendez-vous.')
+      ]));
+    }
     stepper.parentNode.insertBefore(box, stepper.nextSibling);
   }
 

@@ -311,6 +311,8 @@ h1, h2, h3 { margin: 0; }
 .acompte-text { margin: 0; font-size: 16px; color: var(--texte-doux); }
 .acompte-rule { margin: 10px 0 0; font-size: 16px; font-weight: 600; color: var(--nuit); }
 .acompte-pay { margin-top: 18px; }
+.acompte-promo { margin: 18px 0 0; padding-top: 16px; border-top: 1px solid var(--ligne); font-size: 16px; color: var(--texte-doux); }
+.acompte-promo strong { color: var(--nuit); }
 
 /* ---------- Prestation sur demande (carte sous le module) ---------- */
 .ondemand {
